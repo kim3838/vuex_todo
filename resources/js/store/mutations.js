@@ -8,6 +8,7 @@ export const mutations = {
     },
 
     editTodo(state, {todo, label = todo.label, done = todo.done}) {
+
         const index = state.todos.indexOf(todo);
 
         state.todos.splice(index, 1, {
@@ -18,6 +19,7 @@ export const mutations = {
     },
 
     removeTodo(state, todo) {
+
         const index = state.todos.indexOf(todo);
 
         state.todos.splice(index, 1);
