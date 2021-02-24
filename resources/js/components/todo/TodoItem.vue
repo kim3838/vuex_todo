@@ -78,17 +78,17 @@ export default {
 
             let that = this;
 
-            const value = event.target.value.trim();
+            const label = event.target.value.trim();
 
             const {todo} = that; //same as this.todo or that.todo
 
-            if (!value) {
+            if (!label) {
 
                 this.removeTodo(todo);
 
             } else if (that.editing){
 
-                that.editTodo({todo, value});
+                that.editTodo({todo, label});
 
                 this.editing = false
             }
