@@ -8,9 +8,9 @@ export default {
         })
     },
 
-    editTodo({commit}, payload){
+    editTodo({commit}, {todo, label}){
 
-        commit('editTodo', {...payload.todo, label : payload.value});
+        commit('editTodo', {todo, label : label});
     },
 
     removeTodo({commit}, todo){
@@ -35,5 +35,10 @@ export default {
 
         state.todos.filter((todo) => todo.done)
             .forEach((todo) => commit('removeTodo', todo))
+    },
+
+    resetTodos({commit}) {
+
+        commit('reset');
     }
 }

@@ -1,4 +1,4 @@
-export const STORAGE_KEY = 'todos';
+export const STORAGE_KEY = 'local_todos';
 
 export const mutations = {
 
@@ -23,5 +23,12 @@ export const mutations = {
         const index = state.todos.indexOf(todo);
 
         state.todos.splice(index, 1);
+    },
+
+    reset(state) {
+
+        window.localStorage.removeItem(STORAGE_KEY);
+
+        state.todos = JSON.parse('[{ "label": "Something Must\'ve done", "done": false}]');
     }
 }

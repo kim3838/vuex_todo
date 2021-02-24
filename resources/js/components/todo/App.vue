@@ -27,14 +27,25 @@
 
         <!-- CONTENT -->
         <div v-show="todos.length">
-            <div class="mt-4">
-                <label class="inline-flex items-center cursor-pointer">
+            <div class="mt-4 inline-flex items-center gap-2">
+                <label class="inline-flex items-center cursor-pointer border rounded border-gray-200 shadow-sm">
                     <input
                         :checked="allChecked"
                         @change="toggleAll(!allChecked)"
                         type="checkbox"
-                        class="h-8 w-8 form-checkbox text-gray-600 rounded">
+                        class="h-6 w-6 form-checkbox text-gray-600 rounded">
+
+                    <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                    </svg>
                 </label>
+
+                <button @click="resetTodos" class="px-2 inline-flex items-center cursor-pointer border rounded border-gray-200 shadow-sm">
+                    <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    <span class="ml-2 text-gray-700 text-sm">Reset Todos</span>
+                </button>
             </div>
 
             <div class="mt-2 grid grid-cols-12 gap-2">
@@ -121,7 +132,8 @@ export default {
     methods : {
         ...mapActions([
             'toggleAll',
-            'clearCompleted'
+            'clearCompleted',
+            'resetTodos'
         ]),
         addTodo(event){
             const todo = event.target.value;
