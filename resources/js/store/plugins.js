@@ -9,4 +9,4 @@ const localStoragePlugin = (store) => {
 
 export default process.env.MIX_ENV !== 'production'
     ? [localStoragePlugin]
-    : [];
+    : [localStoragePlugin];
