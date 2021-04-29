@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: postcss
+    versions:
+    - 8.2.10
+    - 8.2.12
+    - 8.2.9
+  - dependency-name: tailwindcss
+    versions:
+    - 2.1.1
+  - dependency-name: laravel-mix
+    versions:
+    - 6.0.16
